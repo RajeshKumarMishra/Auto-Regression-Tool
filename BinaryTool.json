@@ -1,0 +1,52 @@
+[ 
+  {
+	"BuildType"                  : "Binary", 
+	"Platform"                   : "RPL-PS",
+	"BuildDirectoryPath"         : "\\Alderlakeboardpkg",
+	"List"                       : "",
+        "PassShaId"                  : "11536b1b21e905d4d65d",
+        "FailShaId"                  : "66464a518f3bfe0403a6",
+        "OpenSourceRepo"             : "None",
+        "BuldFilePrefix"             : "Prod_RPL_PS_R_FSPWRAPPER",
+	"BuildCommand"               : "cln && prep r rplps embedded && bld ",
+	"HostIP"                     : "10.49.4.9",
+	"HostUsername"               : "",
+	"HostPassword"               : "",
+	"FlashImageType"             : "BIOSROM",
+	"FlashAddress"               : "0x1000000",
+	
+	"BiosType"                   : "Release",
+	"BoottoLinuxShell"           : "Yes",
+	"LinuxCommand"               : ["mokutil --sb-state", "dmesg | grep error"],
+	"LinuxNumberofCommands"      : "2",
+	"LinuxKeywordWanted"         : ["done"],
+	"LinuxKeywordUnwanted"       : ["SecureBoot Enabled", "ACPI BIOS Error"],
+	"LinuxBIOSSettings"          : 
+	  {
+			"ACPI Settings" : { "Low Power S0 Idle" : "Enabled" },
+			"PCH-IO Configuration" : { "HD Audio Configuration": {"SNDW #1": "Enabled" }}
+	  },
+        "BoottoEfiShell"	     : "No", 
+	"EfiShellBiosSettings"       :       
+	  {
+		"PCH-IO Configuration" : { "ISH Configuration":{ "ISH Controller": "Disabled"},"PCH LAN Controller" : "Disabled" }
+          },
+	"EfiShellCommand"            : ["pci", "smbiosview"],
+	"EFiShellNumberofCommands"   : "1",
+	"EfiShellKeywordWanted"      : ["Total Memory:         16,138 MB (16,922,570,752 Bytes)"],
+	"EfiShellKeywordUnWanted"    : ["None"],
+	"BoottoWindowsOS"            : "No",
+	"WindowsBiosSettings"        :
+	{
+		"PCH-IO Configuration" : { "HD Audio Configuration": {"SNDW #1": "Enabled" } }
+	},
+	"WindowsCommand"             : "Win32_PNPEntity",
+	"PythonSVcommand"            : "Underdevelopment",
+	"BATTest"                    : "DebugBootTest",
+	"TestCaseName"               : "AutoTest",
+	"Enable"                     : "Yes" 
+	
+	
+  }
+]
+
